@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".login.SignUp">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:background="@color/black"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme">
+
+
+        <TextView
+            android:id="@+id/logo_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="XTrend"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="45dp" />
+    </androidx.appcompat.widget.Toolbar>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="center"
+            android:text="@string/sign_up"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/nom"
+            android:layout_width="173dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/signup"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:drawableLeft="@drawable/ic_baseline_person_24"
+            android:drawablePadding="10dp"
+            android:hint="Nom"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/prenom"
+            android:layout_width="201dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/signup"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_toRightOf="@id/nom"
+            android:drawableLeft="@drawable/ic_baseline_person_24"
+            android:drawablePadding="10dp"
+            android:hint="Prenom"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nom"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:drawableLeft="@drawable/ic_baseline_person_24"
+            android:drawablePadding="10dp"
+            android:hint="Usenrmae (or Email)"
+            android:inputType="textPersonName" />
+        <EditText
+            android:id="@+id/address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="Address"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_below="@id/username"
+            android:drawableLeft="@drawable/ic_home_black_24dp"
+            android:drawablePadding="10dp"
+            />
+        <EditText
+            android:id="@+id/num"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="Phone number"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_below="@id/address"
+            android:drawableLeft="@drawable/ic_baseline_phone_24"
+            android:drawablePadding="10dp"
+            />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="Password"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_below="@id/num"
+            android:drawableLeft="@drawable/ic_lock_24"
+            android:drawablePadding="10dp"
+            />
+
+        <Button
+            android:id="@+id/signup_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/password"
+            android:layout_centerHorizontal="true"
+            android:text="@string/sign_up" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

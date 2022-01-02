@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.accueil.AccueilFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme">
+
+                <TextView
+                    android:id="@+id/logo_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/title_app"
+                    android:textColor="@color/white"
+                    android:textSize="40sp"
+                    android:textStyle="bold" />
+
+            </androidx.appcompat.widget.Toolbar>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/search"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    app:searchHintIcon="@drawable/xlogo" />
+
+                <ImageButton
+                    android:id="@+id/profil_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="250dp"
+                    android:layout_marginRight="10dp"
+                    android:contentDescription="@string/title_profil"
+                    android:src="@drawable/ic_profil_black_24dp" />
+            </LinearLayout>
+
+
+            <ViewFlipper
+                android:layout_width="match_parent"
+                android:layout_height="190dp"
+                android:autoStart="true"
+                android:flipInterval="2000">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/black_friday" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/buy_1_get_free" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/new_year" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/kids_clothes" />
+            </ViewFlipper>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Les Produits"
+                android:textColor="@color/black"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+            <GridView
+                android:id="@+id/listView"
+                android:layout_width="match_parent"
+                android:layout_height="1000dp"
+                android:numColumns="2"
+                tools:listitem="@layout/list_items" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
