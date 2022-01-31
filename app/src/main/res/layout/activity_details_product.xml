@@ -22,7 +22,8 @@
             android:text="@string/title_app"
             android:textColor="@color/white"
             android:textSize="40sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:onClick="logo"/>
 
     </androidx.appcompat.widget.Toolbar>
 

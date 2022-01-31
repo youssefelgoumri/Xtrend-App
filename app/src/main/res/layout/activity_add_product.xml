@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.admin.AddProduct">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:background="@color/black"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme">
+
+        <TextView
+            android:id="@+id/logo_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="XTrend"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="45dp"
+            android:onClick="logo"/>
+    </androidx.appcompat.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_below="@+id/toolbar">
+
+
+        <ImageButton
+            android:id="@+id/Addimage"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/xlogo"
+            android:layout_gravity="center"/>
+
+        <EditText
+            android:id="@+id/Addlibelle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="libelle"
+            android:layout_below="@+id/Addimage"
+            android:layout_margin="10dp" />
+
+        <EditText
+            android:id="@+id/Addprix"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="prix"
+            android:layout_below="@+id/Addlibelle"
+            android:layout_margin="10dp" />
+
+        <EditText
+            android:id="@+id/Adddesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="description"
+            android:layout_below="@+id/Addprix"
+            android:layout_margin="10dp" />
+        <EditText
+            android:id="@+id/Addcatg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="categorie"
+            android:layout_below="@+id/Adddesc"
+            android:layout_margin="10dp" />
+
+
+        <Button
+            android:id="@+id/AddProductBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Addcatg"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="20dp"
+            android:text="Add Product"
+            android:layout_gravity="center"/>
+
+        </RelativeLayout>
+
+
+</RelativeLayout>

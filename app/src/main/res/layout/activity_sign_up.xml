@@ -28,11 +28,16 @@
 
 
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/toolbar"
-        android:gravity="center">
+        android:layout_gravity="center">
 
         <TextView
             android:id="@+id/signup"
@@ -139,6 +144,32 @@
             android:layout_centerHorizontal="true"
             android:text="@string/sign_up" />
 
+        <TextView
+            android:id="@+id/textHyperText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hyperlink2"
+            android:layout_below="@+id/signup_button"
+            android:layout_centerHorizontal="true"
+            />
+
+        <Button
+            android:id="@+id/login_button"
+            android:layout_width="70dp"
+            android:layout_height="34dp"
+            android:layout_alignBottom="@+id/textHyperText"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="-5dp"
+            android:layout_toRightOf="@+id/textHyperText"
+            android:background="#00FFFFFF"
+            android:paddingLeft="0dp"
+            android:paddingTop="4dp"
+            android:text="@string/login_in"
+            android:textColor="#03A9F4"
+            android:textSize="13dp" />
+
     </RelativeLayout>
+
+    </ScrollView>
 
 </RelativeLayout>

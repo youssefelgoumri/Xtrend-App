@@ -3,6 +3,8 @@ package com.elgoumri.xtrend.ui.accueil;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,6 +30,8 @@ public class DetailsProduct extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_product);
 
+        MyDataBase db = new MyDataBase(DetailsProduct.this);
+
         image_product = findViewById(R.id.image_product);
         libelle_product = findViewById(R.id.libelle_product);
         prix_product = findViewById(R.id.prix_product);
@@ -37,33 +41,45 @@ public class DetailsProduct extends AppCompatActivity {
 
 
         Intent i = getIntent();
+        int id_product = i.getIntExtra("id",-3);
 
+        /*
         int image = i.getIntExtra("product_image",-2);
         String libelle = i.getStringExtra("product_libelle");
         int prix = i.getIntExtra("product_prix",-1);
         String desc = i.getStringExtra("product_desc");
 
         String image_flag = i.getStringExtra("product_image_flag");
+        */
+
+        Product product = db.getProductById(id_product);
 
 
-
-
-        image_product.setImageResource(image);
-        libelle_product.setText(libelle);
-        prix_product.setText(String.valueOf(prix));
-        desc_product.setText(desc);
+        Bitmap bitmap = BitmapFactory.decodeByteArray(product.getImage(), 0, product.getImage().length);
+        image_product.setImageBitmap(bitmap);
+        libelle_product.setText(product.getLibelle());
+        prix_product.setText(String.valueOf(product.getPrix()));
+        desc_product.setText(product.getDesc());
 
 
         addProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Product product = new Product(libelle,prix,image_flag,desc);
-                MyDataBase myDataBase = new MyDataBase(DetailsProduct.this);
-                myDataBase.addProduct(product);
-                Toast.makeText(getApplicationContext(), libelle + " is added to cart", Toast.LENGTH_SHORT).show();
+                boolean product_status = db.addToCart(product);
+
+                if (product_status){
+                    Toast.makeText(getApplicationContext(), product.getLibelle() + " is added to cart", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(getApplicationContext(), product.getLibelle() + " is already on cart", Toast.LENGTH_SHORT).show();
+
+                }
             }
         });
 
     }
 
+    public void logo(View view) {
+        Intent i = new Intent(getApplication(),AccueilFragment.class);
+        startActivity(i);
+    }
 }

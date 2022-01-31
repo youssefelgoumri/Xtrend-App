@@ -1,6 +1,8 @@
 package com.elgoumri.xtrend;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,19 +47,22 @@ public class ListitemAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         view = inflater.inflate(R.layout.list_items,null);
 
-        Product product = getItem(i);
-        String itemName = product.getLibelle();
-        int itemPrix = product.getPrix();
-        int imageId = this.getMipmapResIdByName(product.getFlagName());
-
         TextView productName = view.findViewById(R.id.name_id);
         TextView productPrix = view.findViewById(R.id.prix_id);
         ImageView productImage = view.findViewById(R.id.image_id);
 
+        Product product = getItem(i);
+
+        String itemName = product.getLibelle();
+        int itemPrix = product.getPrix();
+        //int imageId = this.getMipmapResIdByName(product.getFlagName());
+        Bitmap bitmap = BitmapFactory.decodeByteArray(product.getImage(), 0, product.getImage().length);
+
 
         productName.setText(itemName);
         productPrix.setText(Integer.toString(itemPrix)+" dh");
-        productImage.setImageResource(imageId);
+        //productImage.setImageResource(imageId);
+        productImage.setImageBitmap(bitmap);
 
 
         return view;

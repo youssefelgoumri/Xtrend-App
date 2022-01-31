@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.admin.Statistic">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
+            android:background="@color/black"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme">
+
+            <TextView
+                android:id="@+id/logo_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="XTrend"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textSize="45dp" />
+        </androidx.appcompat.widget.Toolbar>
+
+        <TextView
+            android:id="@+id/statistictext"
+            android:text="Statistique"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:paddingBottom="10sp"
+            android:layout_below="@+id/toolbar"/>
+
+    <RelativeLayout
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/statistictext"
+        android:padding="20sp">
+
+        <TextView
+            android:id="@+id/total_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total de ventes : "
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/total_sells"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:layout_toRightOf="@+id/total_text"
+            android:textSize="20sp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/line2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line1"
+        android:padding="20sp">
+
+        <TextView
+            android:id="@+id/prod_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="produit gagnant : "
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/winprod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="prduct"
+            android:layout_toRightOf="@+id/prod_text"
+            android:textSize="20sp"/>
+        <ImageView
+            android:id="@+id/img_winprd"
+            android:layout_width="150sp"
+            android:layout_height="150sp"
+            android:layout_below="@+id/winprod"
+            android:src="@drawable/xlogo"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+
+
+
+
+    </RelativeLayout>

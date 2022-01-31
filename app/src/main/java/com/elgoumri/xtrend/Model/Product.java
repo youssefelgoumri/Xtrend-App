@@ -4,14 +4,33 @@ public class Product {
     private int id_produit=0;
     private String libelle;
     private int prix;
-    private String image;
+    private byte[] image;
     private String desc;
-    public Product(String libelle,int prix,String image,String desc) {
+    private String categorie;
+
+    public Product(byte[] image,String libelle,int prix,String desc) {
         id_produit++;
         this.libelle = libelle;
         this.prix=prix;
         this.image=image;
         this.desc=desc;
+    }
+
+    public Product(byte[] image,String libelle,int prix,String desc,String categorie) {
+        id_produit++;
+        this.libelle = libelle;
+        this.prix=prix;
+        this.image=image;
+        this.desc=desc;
+        this.categorie=categorie;
+    }
+    public Product(int id,byte[] image,String libelle,int prix,String desc,String categorie) {
+        id_produit=id;
+        this.libelle = libelle;
+        this.prix=prix;
+        this.image=image;
+        this.desc=desc;
+        this.categorie=categorie;
     }
 
     public Product(){
@@ -31,10 +50,15 @@ public class Product {
 
         return prix;
     }
-    public String getFlagName() {
+    public byte[] getImage() {
 
         return image;
     }
+    /*
+    public String getFlagName() {
+
+        return image;
+    }*/
     public String getDesc(){
         return desc;
     }
@@ -52,11 +76,19 @@ public class Product {
         this.prix = prix;
     }
 
-    public void setImage(String image) {
+    public void setImage(byte[] image) {
         this.image = image;
     }
 
     public void setDesc(String desc) {
         this.desc = desc;
+    }
+
+    public String getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(String categorie) {
+        this.categorie = categorie;
     }
 }
