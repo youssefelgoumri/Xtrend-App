@@ -9,7 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Xtrend">
-        <activity android:name=".ui.accueil.DetailsProduct"></activity>
+        <activity android:name=".ui.admin.Statistic"></activity>
+        <activity android:name=".ui.admin.DetailsOrder" />
+        <activity android:name=".ui.admin.ProductView" />
+        <activity android:name=".ui.admin.EditProduct" />
+        <activity android:name=".ui.admin.Orders" />
+        <activity android:name=".ui.catégorie.ProdsCategory" />
+        <activity android:name=".ui.admin.AddProduct" />
+        <activity android:name=".ui.admin.AdminPage" />
+        <activity android:name=".ui.accueil.DetailsProduct" />
         <activity android:name=".MainActivity" />
         <activity android:name=".login.SignUp" />
         <activity

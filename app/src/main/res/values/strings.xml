@@ -6,6 +6,7 @@
     <string name="title_panier">Panier</string>
     <string name="title_profil">Profil</string>
     <string name="hyperlink"> you dont have account ? </string>
+    <string name="hyperlink2"> you already have account ? </string>
     <string name="sign_up">SIGN UP</string>
     <string name="login_in">LOG IN</string>
 

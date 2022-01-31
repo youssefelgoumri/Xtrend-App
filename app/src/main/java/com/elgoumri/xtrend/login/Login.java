@@ -1,6 +1,5 @@
 package com.elgoumri.xtrend.login;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -8,7 +7,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.elgoumri.xtrend.Controller.MyDataBase;
 import com.elgoumri.xtrend.MainActivity;
 import com.elgoumri.xtrend.R;
+import com.elgoumri.xtrend.ui.admin.AdminPage;
 
 public class Login extends AppCompatActivity {
 
@@ -54,18 +53,24 @@ public class Login extends AppCompatActivity {
                     if(check == true){
                         Toast.makeText(Login.this,"Login Successful",Toast.LENGTH_SHORT).show();
 
-                        //getID of username
-                        int IdUser = myDataBase.getIdPerson(user);
+                        if(user.equals("admin") && pass.equals("admin")){
+                            Intent intent1 = new Intent(view.getContext(), AdminPage.class);
+                            startActivity(intent1);
+                        }else{
+                            //getID of username
+                            int IdUser = myDataBase.getIdPerson(user);
 
-                        //save id of user bcs we need it in product
-                        prefs = getSharedPreferences("secret",0);
-                        SharedPreferences.Editor editor = prefs.edit();
-                        editor.putInt("id_user",IdUser);
-                        editor.commit();
+                            //save id of user bcs we need it in product
+                            prefs = getSharedPreferences("secret",0);
+                            SharedPreferences.Editor editor = prefs.edit();
+                            editor.putInt("id_user",IdUser);
+                            editor.commit();
 
+                            //matnsach tbdl hna dir admin bo7do w user bo7do
+                            Intent intent2 = new Intent(view.getContext(), MainActivity.class);
+                            startActivity(intent2);
+                        }
 
-                        Intent i = new Intent(view.getContext(), MainActivity.class);
-                        startActivity(i);
                     }
                     else{
                         Toast.makeText(Login.this,"Username or password is not correct",Toast.LENGTH_SHORT).show();
@@ -84,4 +89,5 @@ public class Login extends AppCompatActivity {
             }
         });
     }
+
 }

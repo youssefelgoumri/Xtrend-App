@@ -37,7 +37,8 @@
                     android:text="@string/title_app"
                     android:textColor="@color/white"
                     android:textSize="40sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    />
 
             </androidx.appcompat.widget.Toolbar>
 
@@ -46,7 +47,7 @@
                 android:layout_height="match_parent">
 
 
-                <androidx.appcompat.widget.SearchView
+                <SearchView
                     android:id="@+id/search"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

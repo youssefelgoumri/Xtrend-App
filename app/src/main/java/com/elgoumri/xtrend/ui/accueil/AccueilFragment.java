@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageButton;
+import android.widget.SearchView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -15,6 +17,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 
+import com.elgoumri.xtrend.Controller.MyDataBase;
 import com.elgoumri.xtrend.ListitemAdapter;
 
 
@@ -31,6 +34,8 @@ public class AccueilFragment extends Fragment {
     //private AccueilViewModel accueilViewModel;
     private FragmentAccueilBinding binding;
 
+    MyDataBase db;
+
     /*SliderView sliderView;
     int[] images = {
             R.drawable.black_friday2,
@@ -45,6 +50,12 @@ public class AccueilFragment extends Fragment {
         //accueilViewModel = new ViewModelProvider(this).get(AccueilViewModel.class);
         binding = FragmentAccueilBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
+        db = new MyDataBase(getActivity());
+
+
+        SearchView searchView = root.findViewById(R.id.search);
+        TextView logo = root.findViewById(R.id.logo_name);
 
         //go from Home to Profil
         profil = (ImageButton) root.findViewById(R.id.profil_button);
@@ -67,6 +78,7 @@ public class AccueilFragment extends Fragment {
         sliderView.setSliderTransformAnimation(SliderAnimations.DEPTHTRANSFORMATION);
         sliderView.startAutoCycle();*/
 
+/*
         //list of products
         List<Product> product = new ArrayList<>();
         product.add(new Product("White dress",150,"product1","d1"));
@@ -75,29 +87,67 @@ public class AccueilFragment extends Fragment {
         product.add(new Product("Jean",120,"product4","d4"));
         product.add(new Product("Hand-Bag",120,"product5","d5"));
         product.add(new Product("Blue Dress",120,"product6","d6"));
+*/
+
+        ArrayList<Product> product = db.getProducts();
 
         //using custom adapter to link list and data
         GridView listView = (GridView) root.findViewById(R.id.listView);
+
         ListitemAdapter adapter = new com.elgoumri.xtrend.ListitemAdapter(getActivity(), product);
         listView.setAdapter(adapter);
+
 
         //click on item of list
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent detailsProduct = new Intent(getActivity(), DetailsProduct.class);
-                Product p = adapter.getItem(i);
+                //Product p = adapter.getItem(i);
+                Product selected_product = (Product) adapterView.getItemAtPosition(i);
+
+                Intent detailsProduct_intent = new Intent(getActivity(), DetailsProduct.class);
+
+                detailsProduct_intent.putExtra("id", selected_product.getId_produit());
+
+                /*
                 //passing product data to details product
                 detailsProduct.putExtra("product_image",adapter.getMipmapResIdByName(p.getFlagName()));
                 detailsProduct.putExtra("product_image_flag",p.getFlagName());
                 detailsProduct.putExtra("product_libelle",p.getLibelle());
                 detailsProduct.putExtra("product_prix",p.getPrix());
                 detailsProduct.putExtra("product_desc",p.getDesc());
-                startActivity(detailsProduct);
+                 */
+
+                startActivity(detailsProduct_intent);
             }
         });
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+
+                return false;
+            }
+        });
+
+        logo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity(),AccueilFragment.class);
+                startActivity(i);
+            }
+        });
+
+
+
         return root;
     }
+
 
 
     @Override

@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".login.Login">
 
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -21,7 +22,8 @@
             android:text="XTrend"
             android:textStyle="bold"
             android:textColor="@color/white"
-            android:textSize="45dp" />
+            android:textSize="45dp"
+            />
     </androidx.appcompat.widget.Toolbar>
 
 
@@ -98,5 +100,11 @@
             android:text="@string/sign_up"
             android:textColor="#03A9F4"
             android:textSize="13dp" />
+
+
+
     </RelativeLayout>
+
+
+
 </RelativeLayout>

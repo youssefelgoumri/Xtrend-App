@@ -9,8 +9,21 @@ public class Person {
     private String num;
     private String password;
 
+    public Person(){
+
+    }
+
     public Person(String nom, String prenom, String username, String adresse, String num, String password) {
         id++;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.username = username;
+        this.adresse = adresse;
+        this.num = num;
+        this.password = password;
+    }
+    public Person(int id,String nom, String prenom, String username, String adresse, String num, String password) {
+        this.id=id;
         this.nom = nom;
         this.prenom = prenom;
         this.username = username;
